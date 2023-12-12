@@ -16,7 +16,6 @@ use App\Http\Requests\ProductRequest;
 use PHPUnit\Event\Code\Throwable;
 use Illuminate\Support\Facades\Log;
 
-
 class ProductController extends Controller
 {
     public function __construct()
@@ -186,7 +185,6 @@ class ProductController extends Controller
                     if($request->type === \Constant::PRODUCT_LIST['reduce']){
                         $newQuantity = $request->quantity * -1;
                     }
-                    
                     Stock::create([
                         'product_id' => $product->id,
                         'type' => $request->type,
@@ -213,6 +211,11 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Product::findOrFail($id)->delete(); 
+
+        return redirect()
+        ->route('owner.products.index')
+        ->with(['message' => '商品を削除しました。',
+        'status' => 'alert']);
     }
 }
