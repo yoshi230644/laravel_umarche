@@ -127,10 +127,12 @@
 
 .micromodal-slide.is-open {
   display: block;
+
 }
 
 .micromodal-slide[aria-hidden="false"] .modal__overlay {
   animation: mmfadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+  
 }
 
 .micromodal-slide[aria-hidden="false"] .modal__container {
@@ -148,4 +150,12 @@
 .micromodal-slide .modal__container,
 .micromodal-slide .modal__overlay {
   will-change: transform;
+}
+
+.modal__overlay {
+  z-index: 1000; /* 任意の値 */
+}
+
+.modal__container {
+  z-index: 1001; /* 任意の値（modal__overlayよりも高い値） */
 }
