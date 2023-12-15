@@ -5,6 +5,7 @@ use App\Http\Controllers\ComponentTestController;
 use App\Http\Controllers\LifeCycleTestController;
 use App\Http\Controllers\User\ItemController;
 use App\Http\Controllers\User\CartController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,8 @@ Route::prefix('cart')->middleware('auth:users')->group(function(){
         Route::post('add', [CartController::class, 'add'])->name('cart.add');   
         Route::post('delete/{item}', [CartController::class, 'delete'])->name('cart.delete');
         Route::get('checkout', [CartController::class,'checkout'])->name('cart.checkout');
+        Route::get('success', [CartController::class,'success'])->name('cart.success');
+        Route::get('cancel', [CartController::class,'cancel'])->name('cart.cancel');
 });
 
 // Route::get('/dashboard', function () {

@@ -15,6 +15,7 @@ use App\Models\Owner;
 use App\Http\Requests\ProductRequest;
 use PHPUnit\Event\Code\Throwable;
 use Illuminate\Support\Facades\Log;
+use PHPUnit\TextUI\Configuration\Constant;
 
 class ProductController extends Controller
 {
@@ -179,10 +180,10 @@ class ProductController extends Controller
                         $product->is_selling = $request->is_selling;
                         $product->save();
 
-                    if($request->type === \Constant::PRODUCT_LIST['add']){
+                    if($request->type === Constant::PRODUCT_LIST['add']){
                         $newQuantity = $request->quantity;
                     }
-                    if($request->type === \Constant::PRODUCT_LIST['reduce']){
+                    if($request->type === Constant::PRODUCT_LIST['reduce']){
                         $newQuantity = $request->quantity * -1;
                     }
                     Stock::create([
