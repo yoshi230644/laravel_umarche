@@ -10,6 +10,7 @@ use App\Models\Image;
 use App\Models\Stock;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use PHPUnit\TextUI\Configuration\Constant;
 
 class Product extends Model
 {
