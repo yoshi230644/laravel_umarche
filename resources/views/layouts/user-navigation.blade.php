@@ -14,10 +14,10 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('user.items.index')" :active="request()->routeIs('user.items.index')">
+                    <x-nav-link :href="route('user.items.index')" :active="request()->routeIs('user.items.index')" class="text-black">
                         {{ __('ホーム') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('user.cart.index')" :active="request()->routeIs('user.cart.index')">
+                    <x-nav-link :href="route('user.cart.index')" :active="request()->routeIs('user.cart.index')" class="text-black">
                         カートを表示
                     </x-nav-link>
                 </div>
@@ -68,10 +68,10 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('user.items.index')" :active="request()->routeIs('user.items.index')">
+            <x-responsive-nav-link :href="route('user.items.index')" :active="request()->routeIs('user.items.index')" class="text-black">
                 {{ __('ホーム') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('user.cart.index')" :active="request()->routeIs('user.cart.index')">
+            <x-responsive-nav-link :href="route('user.cart.index')" :active="request()->routeIs('user.cart.index') " class="text-black">
                 カートを表示
             </x-responsive-nav-link>
         </div>
