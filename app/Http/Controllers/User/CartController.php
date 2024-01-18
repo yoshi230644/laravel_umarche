@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Stock;
 use Illuminate\Support\Facades\Auth;
 use PHPUnit\TextUI\Configuration\Constant;
+use App\Services\CartService;
 
 class CartController extends Controller
 {
@@ -59,6 +60,10 @@ class CartController extends Controller
 
     public function checkout()
     {
+        ////
+        $items = Cart::where('user_id', Auth::id())->get();
+        $product=CartService::getItemsInCart($items);
+        ////
         $user = User::findOrFail(Auth::id());
         $products = $user->products;
  
